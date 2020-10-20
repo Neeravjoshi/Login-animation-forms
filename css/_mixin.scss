@@ -1,0 +1,41 @@
+// --------------------------------------------------------------------------------------
+// ================================== Mixin common methods  =============================
+// --------------------------------------------------------------------------------------
+
+
+
+//
+// Conditional Media Query mixin
+//
+@mixin respond($breakPoint) {
+  @if $breakPoint == phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $breakPoint == tab-port {
+    @media (min-width: 600px) and (max-width: 1024px) {
+      // 56.25 em
+      @content;
+    }
+  }
+
+  @if $breakPoint == small-desktop {
+    @media (min-width: 1025px) and (max-width: 1279px) {
+      @content;
+    }
+  }
+
+  @if $breakPoint == regular-desktop {
+    @media (min-width: 1280px) and (max-width: 1440px) {
+      @content;
+    }
+  }
+
+  @if $breakPoint == large-desktop {
+    @media (max-width: 1900px) {
+      @content;
+    }
+  }
+}

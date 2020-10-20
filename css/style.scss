@@ -1,0 +1,241 @@
+@import 'abstract.scss';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: $font-family;
+}
+.wave{
+    position: fixed;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+
+    @include respond('tab-port') {
+        display: none;
+    }
+    @include respond('phone') {
+        display: none;
+    }
+}
+
+.login-form-main{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 120px;
+    padding: 0 30px;
+    
+    .img{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        @include respond('tab-port') {
+           display: none;
+        }
+
+        @include respond('phone') {
+            display: none;
+         }
+
+        img{
+            width: 500px;
+
+            @include respond('small-desktop') {
+                width: 400px;
+            }
+        }
+    }
+
+    .login-cont{
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        form{
+            width: 350px;
+
+            img.prof-img{
+                width: 100px;
+            }
+
+            h2{
+                font-size: 36px;
+                text-transform: uppercase;
+                margin: 25px 0;
+                color: $light-black;
+
+                @include respond('small-desktop') {
+                    font-size: 26px;
+                }
+            }
+
+            .input-dv{
+                position: relative;
+                display: grid;
+                grid-template-columns: 7% 93%;
+                margin: 25px 0;
+                border-bottom: 2px solid $light-gray;
+
+                &.one{
+                    margin-top: 0;
+                }
+
+                &.tow{
+                    margin-top: 4px;
+                }
+
+                .fo-logo{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .fa{
+                        color: $light-gray;
+                        transition: .3s;
+                    }
+                }
+
+                .label-dv{
+                    position: relative;
+                    height: 45px;
+
+                    h5{
+                        position: absolute;
+                        left: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: $grey;
+                        font-size: 18px;
+                        transition: .3s;
+                    }
+                    
+                    .input{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        border:none;
+                        outline: none;
+                        background: none;
+                        padding: 8px 12px;
+                        font-size: 18px;
+                        color: $black-shade1;
+                    }
+                }
+
+                &.focus{
+                    .fo-logo{
+                        .fa{
+                            color: $blue-shade;
+                        }
+                    }
+
+                    .label-dv{
+                        h5{
+                            top: -5px;
+                            font-size: 15px;
+                        }
+                    }
+
+                    &::after{
+                        width: 50%;
+                    }
+                    &::before{
+                        width: 50%;
+                    }
+                }
+                
+                &::after{
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    width: 0;
+                    height: 2px;
+                    background-color: $blue-shade;
+                    right: 50%;
+                    transition: .4s;
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    width: 0;
+                    height: 2px;
+                    background-color: $blue-shade;
+                    left: 50%;
+                    transition: .4s;
+                }
+            }
+
+            a{
+                display: block;
+                text-align: right;
+                text-decoration: none;
+                color: $grey;
+                font-size: 14px;
+                transition: .3s;
+
+                &:hover{
+                    color: $blue-shade;
+                }
+            }
+
+            .btn{
+                display: block;
+                width: 100%;
+                height: 50px;
+                border-radius: 25px;
+                margin: 15px 0;
+                font-size: 18px;
+                outline: none;
+                border: none;
+                background-image: linear-gradient(to right, $blue-shade1 , $blue-shade, $blue-shade1);
+                cursor: pointer;
+                color: $white-color;
+                text-transform: capitalize;
+                background-size: 200%;
+                transition: .5s;
+
+                &:hover{
+                    background-position: right;
+                }
+            }
+
+            @include respond('small-desktop') {
+                width: 250px;
+            }
+        }
+        
+        @include respond('tab-port') {
+            justify-content: center;
+        }
+
+        @include respond('phone') {
+            justify-content: center;
+        }
+    }
+    
+
+
+    @include respond('small-desktop') {
+        grid-gap:80px;
+    }
+    @include respond('tab-port') {
+        grid-template-columns: 1fr;
+    }
+
+    @include respond('phone') {
+        grid-template-columns: 1fr;
+    }
+}
